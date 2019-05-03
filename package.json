@@ -1,0 +1,53 @@
+{
+  "name": "shibbir.io",
+  "version": "0.1.0",
+  "author": "Shibbir Ahmed",
+  "dependencies": {
+    "@mdx-js/mdx": "^1.0.0-rc.4",
+    "@mdx-js/react": "^1.0.0-rc.5",
+    "disqus-react": "^1.0.5",
+    "gatsby": "^2.3.3",
+    "gatsby-image": "^2.0.35",
+    "gatsby-mdx": "^0.6.2",
+    "gatsby-plugin-manifest": "^2.0.25",
+    "gatsby-plugin-offline": "^2.0.25",
+    "gatsby-plugin-react-helmet": "^3.0.11",
+    "gatsby-plugin-sass": "^2.0.11",
+    "gatsby-plugin-sharp": "^2.0.32",
+    "gatsby-remark-copy-linked-files": "^2.0.11",
+    "gatsby-remark-images": "^3.0.10",
+    "gatsby-remark-prismjs": "^3.2.6",
+    "gatsby-source-filesystem": "^2.0.28",
+    "gatsby-transformer-remark": "^2.3.8",
+    "gatsby-transformer-sharp": "^2.1.17",
+    "node-sass": "^4.11.0",
+    "prism-react-renderer": "^0.1.6",
+    "prismjs": "^1.16.0",
+    "prop-types": "^15.7.2",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6",
+    "react-helmet": "^5.2.0",
+    "react-image-lightbox": "^5.1.0",
+    "react-images": "^0.5.19"
+  },
+  "devDependencies": {
+    "@babel/plugin-proposal-class-properties": "^7.4.0",
+    "@babel/preset-env": "^7.4.3",
+    "@babel/preset-react": "^7.0.0",
+    "@mdx-js/loader": "^1.0.0-rc.4",
+    "prettier": "^1.16.4"
+  },
+  "keywords": [
+    "gatsby",
+    "graphql",
+    "react"
+  ],
+  "license": "MIT",
+  "scripts": {
+    "build": "gatsby build",
+    "format": "prettier --write src/**/*.{js,jsx}",
+    "start": "gatsby develop",
+    "serve": "gatsby serve",
+    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\""
+  }
+}
