@@ -1,4 +1,5 @@
 ## SHIBBIR.IO
+
 > Source code of https://shibbir.io/
 
 [![Build Status](https://travis-ci.org/shibbir/shibbir.io.svg?branch=master)](https://travis-ci.org/shibbir/shibbir.io)
@@ -7,9 +8,11 @@
 
 Built with:
 
-- [React](https://reactjs.org/)
-- [Gatsby](https://www.gatsbyjs.org/)
-- [GraphQL](https://graphql.org/)
+-   [React](https://reactjs.org/)
+-   [Gatsby](https://www.gatsbyjs.org/)
+-   [GraphQL](https://graphql.org/)
+-   [MDX](https://mdxjs.com/)
 
 ## License
-<a href="https://opensource.org/licenses/MIT">The MIT License</a> Copyright &copy; 2019 Shibbir Ahmed
+
+<a href="https://opensource.org/licenses/MIT">The MIT License</a> Copyright &copy; 2020 Shibbir Ahmed

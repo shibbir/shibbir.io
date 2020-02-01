@@ -1,5 +1,5 @@
 ---
-path: /lexical-analyzer
+slug: lexical-analyzer
 title: Lexical Analyzer
 date: 2011-01-08
 category: programming
@@ -18,9 +18,9 @@ But I've code it in a way so that this features can be added without making a si
 #include<stdio.h>
 #include<string.h>
 #include<ctype.h>
- 
+
 bool KEYWORD(char word[]) {
- 
+
     if(strcmp(word, "auto") == 0)       return true;
     if(strcmp(word, "break") == 0)      return true;
     if(strcmp(word, "case") == 0)       return true;
@@ -55,9 +55,9 @@ bool KEYWORD(char word[]) {
     if(strcmp(word, "while") == 0)      return true;
     return false;
 }
- 
+
 bool LIBRARY_FUNCTION(char word[]) {
- 
+
     if(strcmp(word, "printf") == 0)     return true;
     if(strcmp(word, "scanf") == 0)      return true;
     if(strcmp(word, "strlen") == 0)     return true;
@@ -72,9 +72,9 @@ bool LIBRARY_FUNCTION(char word[]) {
     /* You can add other functions if you want to */
     return false;
 }
- 
+
 int main () {
- 
+
     FILE *in, *out;
     char word[100], ch, c;
     long i, count, line;
@@ -83,17 +83,17 @@ int main () {
     bool header, exist=false;
     char id[100][100];
     int m, k = 0;
- 
+
     in = fopen("input.cpp", "r");
     out = fopen("token.txt", "w");
- 
+
     fputs("Statement No.\tToken\t\t\t\t\t\tLexeme\t\t\t\t\t\tline No.\n", out);
- 
+
     while(1) {
- 
+
         ch = getc(in);
         if(ch == EOF) break;
- 
+
         if(ch == '#') {
             header = false;     // header file incomlete
             word[i++] = ch;
@@ -268,7 +268,7 @@ int main () {
         else if(ch == ' ' || ch == '\n' || ch == '\t') {
             station:
                 word[i] = '\0';
- 
+
                 if(word[0] == '#' && word[i-1] == '>') {
                     fprintf(out, "%ld\t\t\t\tHeader File\t\t\t\t\t", ++count);
                     fputs(word, out);
