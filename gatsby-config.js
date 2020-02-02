@@ -6,11 +6,20 @@ module.exports = {
     },
     plugins: [
         "gatsby-plugin-react-helmet",
-        "gatsby-plugin-mdx",
+        "gatsby-plugin-sharp",
+        {
+            resolve: "gatsby-plugin-mdx",
+            options: {
+                gatsbyRemarkPlugins: [
+                    {
+                        resolve: "gatsby-remark-images"
+                    }
+                ]
+            }
+        },
         {
             resolve: "gatsby-source-filesystem",
             options: {
-                name: "posts",
                 path: `${__dirname}/src/posts/`
             }
         },
