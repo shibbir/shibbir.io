@@ -10,7 +10,7 @@ export default function Posts({ data, pageContext }) {
         <article className="preview" key={edge.node.id}>
             <header>
                 <h1 className="post-title">
-                    <a href={edge.node.frontmatter.slug}>{edge.node.frontmatter.title}</a>
+                    <a href={`/${edge.node.frontmatter.slug}`}>{edge.node.frontmatter.title}</a>
                 </h1>
                 <div className="post-meta">
                     <time className="post-date">{edge.node.frontmatter.date}</time>
@@ -21,7 +21,7 @@ export default function Posts({ data, pageContext }) {
                 <p>{edge.node.frontmatter.excerpt}</p>
 
                 <p className="readmore">
-                    <a href={edge.node.frontmatter.slug}>
+                    <a href={`/${edge.node.frontmatter.slug}`}>
                         Read this article <i className="fa fa-chevron-circle-right"></i>
                     </a>
                 </p>
