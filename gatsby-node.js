@@ -11,6 +11,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
                         id
                         frontmatter {
                             slug
+                            category
                         }
                     }
                 }
@@ -44,6 +45,12 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
             path: node.frontmatter.slug,
             component: path.resolve("./src/templates/post.template.js"),
             context: { id: node.id }
+        });
+
+        createPage({
+            path: `categories/${node.frontmatter.category}`,
+            component: path.resolve("./src/templates/category.template.js"),
+            context: { category: node.frontmatter.category }
         });
     });
 };

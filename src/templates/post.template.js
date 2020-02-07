@@ -11,17 +11,17 @@ export default ({ data: { mdx } }) => {
 
     return (
         <Layout>
+            <Helmet>
+                <title>{frontmatter.title}</title>
+            </Helmet>
+
             <main className="content" role="main">
                 <article className="post">
-                    <Helmet>
-                        <title>{frontmatter.title}</title>
-                    </Helmet>
-
                     <header>
                         <h1 className="post-title">{frontmatter.title}</h1>
-                        <div className="post-meta tags">Posted in {frontmatter.category}</div>
                         <div className="post-meta">
-                            <time className="post-date">{frontmatter.date}</time>
+                            <time className="post-date">Posted on {frontmatter.date}</time> — in{" "}
+                            <a href={`/categories/${frontmatter.category}`}>{frontmatter.category}</a>
                         </div>
                     </header>
 

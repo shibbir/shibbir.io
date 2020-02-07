@@ -254,6 +254,10 @@ section.post-content img {
     margin: 0 auto;
     max-width: 100%;
 }
+section.post-content .kg-width-wide img {
+}
+section.post-content .kg-width-full img {
+}
 section.preview.archive h2 {
     text-align: left;
 }
@@ -326,6 +330,9 @@ nav.menu {
 nav.menu li {
     margin: 0 0.5em;
     padding: 0;
+}
+nav.menu li:last-child {
+    margin: 0;
 }
 @media only screen and (min-width: 320px) and (max-width: 662px) {
     nav.menu li {
@@ -437,6 +444,9 @@ a.archive-link {
 }
 @font-face {
     font-family: "icons";
+    src: url("../fonts/icons.eot");
+    src: url("../fonts/icons.eot?#iefix") format("embedded-opentype"), url("../fonts/icons.woff") format("woff"),
+        url("../fonts/icons.ttf") format("truetype"), url("../fonts/icons.svg#icons") format("svg");
     font-weight: normal;
     font-style: normal;
 }

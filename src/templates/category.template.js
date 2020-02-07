@@ -3,9 +3,8 @@ import { graphql } from "gatsby";
 
 import SEO from "../components/seo";
 import Layout from "../components/layout";
-import Pagination from "../components/pagination";
 
-export default function Posts({ data, pageContext }) {
+export default function Posts({ data }) {
     const Posts = data.allMdx.edges.map(edge => (
         <article className="preview" key={edge.node.id}>
             <header>
@@ -35,15 +34,16 @@ export default function Posts({ data, pageContext }) {
             <SEO title="Blog" keywords={["gatsby", "react"]} />
 
             {Posts}
-
-            <Pagination numPages={pageContext.numPages} currentPage={pageContext.currentPage} />
         </Layout>
     );
 }
 
 export const pageQuery = graphql`
-    query($skip: Int!, $limit: Int!) {
-        allMdx(sort: { fields: [frontmatter___date], order: DESC }, limit: $limit, skip: $skip) {
+    query($category: String) {
+        allMdx(
+            filter: { frontmatter: { category: { eq: $category } } }
+            sort: { fields: [frontmatter___date], order: DESC }
+        ) {
             edges {
                 node {
                     id

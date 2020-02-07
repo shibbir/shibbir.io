@@ -13,7 +13,7 @@ excerpt: Gulp is a task runner or build tool for web development. When working o
 Gulp is based on Node.js. You can install it via node package manager (npm). To get **npm** you have to install **node.js** in your machine. Simply go to [https://nodejs.org/](https://nodejs.org/) and install it if you haven't already.
 
 ```bash
-npm install -g gulp-cli
+$ npm install -g gulp-cli
 ```
 
 ## Integrate Gulp in your project
@@ -21,7 +21,7 @@ npm install -g gulp-cli
 Now we need to install gulp as our project dependency. Inside your project root directory create a **package.json** file by issuing:
 
 ```bash
-npm init --yes
+$ npm init --yes
 ```
 
 That will create a `package.json` file with defaults and not prompt you for any options.
@@ -29,7 +29,7 @@ That will create a `package.json` file with defaults and not prompt you for any 
 Now install gulp as your development dependency:
 
 ```bash
-npm install gulp --save-dev
+$ npm install gulp --save-dev
 ```
 
 After the download is finished, you will see that the package.json will contain something like this:
@@ -44,7 +44,7 @@ After the download is finished, you will see that the package.json will contain 
 Now the way gulp work is each task is separated through modules. so each module does exactly one task. for example to minify css we can install the **gulp-minify-css** plug-in:
 
 ```bash
-npm install gulp-minify-css --save-dev
+$ npm install gulp-minify-css --save-dev
 ```
 
 ## Working with Gulp
@@ -118,12 +118,12 @@ Lets create a real world example. We will minify, concat our css and js files an
 First, lets download the necessary packages we need for this particular scenario:
 
 ```bash
-npm install -D gulp gulp-minify-css gulp-concat gulp-imagemin gulp-rename gulp-uglify del
+$ npm install -D gulp gulp-minify-css gulp-concat gulp-imagemin gulp-rename gulp-uglify del
 ```
 
 Lets edit the gulpfile.js:
 
-```javascript{numberLines: true}
+```javascript
 var gulp      = require("gulp"),
     del       = require("del"),
     uglify    = require("gulp-uglify"),
@@ -216,7 +216,7 @@ destination    = destination path for final resulted file
 All of the plug-ins used here are self-explanatory. We have used the "del" plug-in so that on each gulp run it will delete the whole build directory. We have also create a default task that will trigger the others tasks. Now just run:
 
 ```bash
-gulp
+$ gulp
 ```
 
 Now, lets check the solution directory again:
