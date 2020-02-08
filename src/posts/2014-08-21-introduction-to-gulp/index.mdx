@@ -3,235 +3,255 @@ slug: introduction-to-gulp
 title: Introduction to Gulp
 date: 2014-08-21
 category: javascript
-excerpt: Gulp is a task runner or build tool for web development. When working on a javascript projects, quite often we have to do some repetitive tasks such as minifying the css or javascript, concatenating them into one file to...
+excerpt: Gulp is a cross-paltform task runner for web development. When working on a javascript projects, quite often we have to do some repetitive tasks such as minifying the css or javascript, concatenating them into one file to...
 ---
 
-[Gulp](http://gulpjs.com/) is a task runner or build tool for web development. When working on a javascript projects, quite often we have to do some repetitive tasks such as minifying the css or javascript, concatenating them into one file to reduce the HTTP round trip between server to the client browser, optimizing images, running the tests etc. Depending on the size of the projects, managing those tasks can be very time consuming and tedious. But with the help of a task runner like Gulp.js, you can really automate this whole process and just focus on the application.
+> Note: This article is last updated on February 09, 2020 with Gulp 4.0.2
+
+[Gulp](https://gulpjs.com/) is a cross-paltform task runner for web development. When working on a javascript projects, quite often we have to do some repetitive tasks such as minifying the css or javascript,
+concatenating them into one file to reduce the HTTP round trip between server to the client browser, optimizing images, running the tests etc. Depending on the size of the projects, managing those tasks can be very time
+consuming and tedious. But with the help of a task runner you can really automate this whole process and just focus on the application.
 
 ## Installing Gulp
 
-Gulp is based on Node.js. You can install it via node package manager (npm). To get **npm** you have to install **node.js** in your machine. Simply go to [https://nodejs.org/](https://nodejs.org/) and install it if you haven't already.
+Gulp is based on Node.js. Which means you have to download and install [node.js](https://nodejs.org). Go ahead and do that if you haven't already. Now before installing gulp in your project you need to install the
+gulp command line utility. [This article](https://medium.com/gulpjs/gulp-sips-command-line-interface-e53411d4467) explains why you need to install `gulp-cli`.
 
 ```bash
-$ npm install -g gulp-cli
+$ npm install gulp-cli --global
 ```
 
-## Integrate Gulp in your project
-
-Now we need to install gulp as our project dependency. Inside your project root directory create a **package.json** file by issuing:
+Now we are ready to install gulp. The following commands will create a **_package.json_** file with default configs, install gulp as your development dependency, and display the versions:
 
 ```bash
 $ npm init --yes
-```
-
-That will create a `package.json` file with defaults and not prompt you for any options.
-
-Now install gulp as your development dependency:
-
-```bash
 $ npm install gulp --save-dev
+$ gulp --version
 ```
 
-After the download is finished, you will see that the package.json will contain something like this:
+## Gulp api's
 
-```json
-{
-  "devDependencies": {
-    "gulp": "^3.8.7"
-  }
+Gulp exposes several api's to work. The most commons are:
+
+`src(globs, [options])`: Accepts a globs which is a string array and returns a stream that produces Vinyl objects. Vinyl is a metadata object that describes a file.
+
+`dest(directory, [options])`: The path of the output directory where files will be written.
+
+`series(...tasks)`: Combines task functions and/or composed operations into larger operations that will be executed one after another, in sequential order.
+
+`parallel(...tasks)`: Combines task functions and/or composed operations into larger operations that will be executed simultaneously.
+
+`watch(globs, [options], [task])`: Allows watching globs and running a task when a change occurs.
+
+## Gulpfile
+
+Create a **_gulpfile.js_** or **_Gulpfile.js_** file in root directory that automatically loads when you run the `gulp` command. The syntax for gulp is `gulp <task> <othertask>`. Any exported functions from **_gulpfile.js_** will be registered
+into gulp's task system. These functions are asynchronous that can return streams, promises, event emitters, child processes, or observables.
+
+```javascript
+function defaultTask(cb) {
+    console.log("This is the default task.");
+    cb();
 }
-```
-Now the way gulp work is each task is separated through modules. so each module does exactly one task. for example to minify css we can install the **gulp-minify-css** plug-in:
 
-```bash
-$ npm install gulp-minify-css --save-dev
-```
-
-## Working with Gulp
-
-Lets create a css file, for example **site.css**
-
-```css
-#container {
-   color: green;
+function otherTask(cb) {
+    console.log("Tell me what to do!");
+    cb();
 }
+
+exports.default = defaultTask;
+exports.otherTask = otherTask;
 ```
 
-We will create a task to minify this file. Gulp tasks are reside in a **gulpfile.js**. Let’s create that file:
+Now if you run the following commands one by one; the first one will execute the `defaultTask` function or _task_ beacuse it is exported as default and the second command will execute the `otherTask` task:
+```bash
+$ gulp
+$ gulp otherTask
+```
+
+You can combines task functions and/or composed operations into larger operations using `series()` and `parallel()`.
 
 ```javascript
-var gulp      = require("gulp"),
-    minifycss = require("gulp-minify-css");
+const { series, parallel } = require("gulp");
 
-gulp.task("css", function() {
-    return gulp.src("css/site.css")
-        .pipe(minifycss())
-        .pipe(gulp.dest("build/css"));
-});
+function css(done) {
+    // body omitted
+    done();
+}
+
+function javascript(done) {
+    // body omitted
+    done();
+}
+
+exports.sequentialBuild = series(javascript, css);
+exports.simultaneousBuild = parallel(javascript, css);
 ```
 
-First we brought in the required packages. In this case **gulp** and **gulp-minify-css**.
+## Using Plugins
 
-Next, we created a task called "css". Inside that task we told gulp what is the file path for our css that we want to minify (you can certainly specify multiple files). Than we minify the css file using the `minifycss()` method that **gulp-minify-css** plugin provides.
+Gulp plugins are small utility library that encapsulate common functionality to transform files in a pipeline. You can use multiple plugins in a single task. Plugins are a great way to reuse functionality from different
+places in Gulpfile. Currently there are 3807 plugins available and the list is still growing. You can use plugins to do things like css minification, concatenating javascripts, running server etc. Lets look at some
+examples of such things using gulp:
 
-Finally we specify the destination directory for our minified file. You can see that we can chain methods together to describe our tasks (much like **jQuery**).
-
-## Running Gulp
-
-Open your terminal and type:
+#### Example #1: Sass compilation and css minification
 
 ```bash
-# Syntax: gulp <task_name>
-gulp css
+$ npm install node-sass gulp-sass gulp-clean-css --save-dev
 ```
-
-Gulp will go through the `gulpfile.js` file and find the "css" task and run that task.
-
-Now if you open **build/css** directory you will see a file site.css which contains the minified css. Like so:
-
-```css
-#container{color:green;}
-```
-
-You can also make a default task which may contain multiple tasks. for example:
 
 ```javascript
-gulp.task("default", ["task_1", "task_2", "task_3"]);
+const { src, dest } = require("gulp");
+const sass = require("gulp-sass");
+const cleanCSS = require("gulp-clean-css");
+sass.compiler = require("node-sass");
+
+function css(done) {
+    src("./style.scss")
+        .pipe(sass())
+        .pipe(cleanCSS())
+        .pipe(dest("./output"));
+    done();
+}
+
+exports.css = css;
+
 ```
 
-The benefit of this is now instead of calling `gulp task_1` or `gulp task_2`, you can simply call gulp. That will trigger the default task and run all the tasks that are specified in that task.
+First we brought in the required libraries. Then, we created a task called `style`. Inside that task we told gulp what is the file path for our scss file using `src` api. Than we compile it down to css using the `sass()` method that
+[gulp-sass](https://www.npmjs.com/package/gulp-sass) plugin provides. After that we minified the compiled css file. Finally we specified the destination for our output file. You can see that we can chain methods together to describe our tasks.
 
-You can also **watch** specific files so that you don’t have to manually run gulp each time your source files change. lets create a task for that:
-
-```javascript
-gulp.task("watch", function() {
-    gulp.watch("css/site.css", ["css"]);
-});
-```
-Now simply run gulp watch. Now gulp will automatically trigger "css" task that we defined earlier whenever you change our source css file.
-
-## Real world example
-Lets create a real world example. We will minify, concat our css and js files and also compress our image files. Our directory structure will look like this:
-
-![before-gulp](https://res.cloudinary.com/shibbir/image/upload/q_100/v1477222564/before-gulp_y9nznh.png)
-
-First, lets download the necessary packages we need for this particular scenario:
+#### Example #2: TypeScript to JavaScript compilation
 
 ```bash
-$ npm install -D gulp gulp-minify-css gulp-concat gulp-imagemin gulp-rename gulp-uglify del
+$ npm install typescript gulp-typescript --save-dev
+```
+
+```javascript
+const { src, dest } = require("gulp");
+const ts = require("gulp-typescript");
+
+function typescript(done) {
+    src("./script.ts")
+        .pipe(ts())
+        .pipe(dest("./output"));
+    done();
+}
+
+exports.typescript = typescript;
+
+```
+
+#### Example #3: JavaScript minification
+
+```bash
+$ npm install gulp-uglify-es --save-dev
+```
+
+```javascript
+const { src, dest } = require("gulp");
+const uglify = require("gulp-uglify-es").default;
+
+function compress(done) {
+    src("./scripts.js")
+        .pipe(uglify())
+        .pipe(dest("./output"));
+    done();
+}
+
+exports.compress = compress;
+
+```
+
+## Watching source files
+
+You can also [watch](https://gulpjs.com/docs/en/getting-started/watching-files) for changes so that you don’t have to manually run gulp each time your source files change. lets create a task for that:
+
+```javascript
+const { watch } = require("gulp");
+
+function css(done) {
+    // body omitted
+    done();
+}
+
+function javascript(done) {
+    // body omitted
+    done();
+}
+
+function watcher() {
+    watch("./style.css", css);
+    watch("./script.js", javascript);
+}
+
+exports.watcher = watcher;
+
+```
+Now simply running `gulp watcher` will watch for changes in the specified files and automatically trigger the corresponding task.
+
+## All together
+Lets put all of the above examples together to create a final example.
+
+First, download the necessary packages for this particular scenario:
+
+```bash
+$ npm install gulp node-sass typescript gulp-sass gulp-typescript gulp-rename gulp-clean-css gulp-uglify-es --save-dev
 ```
 
 Lets edit the gulpfile.js:
 
 ```javascript
-var gulp      = require("gulp"),
-    del       = require("del"),
-    uglify    = require("gulp-uglify"),
-    concat    = require("gulp-concat"),
-    rename    = require("gulp-rename"),
-    imagemin  = require("gulp-imagemin"),
-    minifycss = require("gulp-minify-css");
+const { src, dest, watch, parallel } = require("gulp");
+const sass = require("gulp-sass");
+const ts = require("gulp-typescript");
+const rename = require("gulp-rename");
+const cleanCSS = require("gulp-clean-css");
+const uglify = require("gulp-uglify-es").default;
 
-var paths = {
-    css: {
-        site: [
-            "css/vendor/foundation.css",
-            "css/style.css"
-        ]
-    },
-    scripts: {
-        vendors: [
-            "js/vendor/jquery.js",
-            "js/vendor/toastr.js"
-        ],
-        app: [
-            "js/customerModule.js",
-            "js/productModule.js"
-        ]
-    },
-    images: "img/**/*"
-};
+sass.compiler = require("node-sass");
 
-var css = function(path, outputFileName, destination) {
-    destination = destination || "build/css";
+function css(done) {
+    src("./style.scss")
+        .pipe(sass())
+        .pipe(rename("bundle.css"))
+        .pipe(dest("./output"))
+        .pipe(cleanCSS())
+        .pipe(rename("bundle.min.css"))
+        .pipe(dest("./output"));
+    done();
+}
 
-    return gulp.src(path)
-        .pipe(concat(outputFileName))
-        .pipe(gulp.dest(destination))
-        .pipe(rename({ suffix: ".min" }))
-        .pipe(minifycss())
-        .pipe(gulp.dest(destination));
-};
-
-var scripts = function(path, outputFileName, destination) {
-    destination = destination || "build/js";
-
-    return gulp.src(path)
-        .pipe(concat(outputFileName))
-        .pipe(gulp.dest(destination))
-        .pipe(rename({ suffix: ".min" }))
+function typescript(done) {
+    src("./script.ts")
+        .pipe(ts())
+        .pipe(rename("bundle.js"))
+        .pipe(dest("./output"))
         .pipe(uglify())
-        .pipe(gulp.dest(destination));
-};
+        .pipe(rename("bundle.min.js"))
+        .pipe(dest("./output"));
+    done();
+}
 
-gulp.task("Clean", function(cb) {
-    del(["build"], cb);
-});
+function watcher() {
+    watch("./style.css", css);
+    watch("./script.ts", typescript);
+}
 
-gulp.task("Images", ["Clean"], function() {
-    return gulp.src(paths.images)
-        .pipe(imagemin({optimizationLevel: 5}))
-        .pipe(gulp.dest("build/img"));
-});
-
-gulp.task("VendorScripts", ["Clean"], function() {
-    return scripts(paths.scripts.vendors, "vendor.js");
-});
-
-gulp.task("AppScripts", ["Clean"], function() {
-    return scripts(paths.scripts.app, "app.js");
-});
-
-gulp.task("SiteCSS", ["Clean"], function() {
-    return css(paths.css.site, "site.css");
-});
-
-gulp.task("Watch", function() {
-    gulp.watch(paths.scripts.app, ["AppScripts"]);
-    gulp.watch(paths.css.site, ["SiteCSS"]);
-    gulp.watch(paths.images, ["Images"]);
-});
-
-gulp.task("default", ["Watch", "SiteCSS", "Images", "VendorScripts", "AppScripts"]);
-```
-
-Here, we’ve two function css and scripts for some code re-usability. Both function accepts three parameter
+exports.watcher = watcher;
+exports.build = parallel(css, typescript);
 
 ```
-path           = what is file path for the source files
-outputFileName = name of the final output file
-destination    = destination path for final resulted file
-```
-
-All of the plug-ins used here are self-explanatory. We have used the "del" plug-in so that on each gulp run it will delete the whole build directory. We have also create a default task that will trigger the others tasks. Now just run:
 
 ```bash
-$ gulp
+$ gulp watcher // listen for changes
+$ gulp build // execute css and javascript tasks simultaneously
 ```
-
-Now, lets check the solution directory again:
-![after-gulp](https://res.cloudinary.com/shibbir/image/upload/q_100/v1477222564/after-gulp_drwfxr.png)
-
-You can see that gulp has created a build directory and inside that it creates both css and js directory with both minified and unminified files. Also creates a img folder that contains the compressed images.
 
 ## Wrap up
 
-Easy, right? Although we've gone through only the basics of Gulp. Gulp can do much more than this and can be very complex or very simple depending on the project.
-
-#### Here some of the useful gulp plugins for your next project:
-* [gulp-util](https://www.npmjs.com/package/gulp-util)
-* [gulp-uglify](https://www.npmjs.com/package/gulp-uglify)
-* [gulp-concat](https://www.npmjs.com/package/gulp-concat)
-* [gulp-rename](https://www.npmjs.com/package/gulp-rename)
-* [gulp-clean-css](https://www.npmjs.com/package/gulp-clean-css)
-* [gulp-load-plugins](https://www.npmjs.com/package/gulp-load-plugins)
+Easy, right? Although we've gone through only the basics of Gulp. Gulp can do much more than this and can be very complex or very simple depending on the project. Here are some important ponits to remember:
+* Each gulp task is an asynchronous JavaScript function. Synchronous tasks aren't supported, though there is a [alternative](https://gulpjs.com/docs/en/getting-started/async-completion#using-async-await).
+* Tasks can be considered public or private. Public tasks are exported from your gulpfile. Private tasks are made to be used internally.
+* If your gulpfile become too big, you can split each task into its own file. More on [here](https://gulpjs.com/docs/en/getting-started/javascript-and-gulpfiles#splitting-a-gulpfile).
+* You can write a gulpfile using TypeScript or Babel. For TypeScript, rename to `gulpfile.ts` and for Babel, rename to `gulpfile.babel.js`. More on [here](https://gulpjs.com/docs/en/getting-started/javascript-and-gulpfiles#transpilation).
