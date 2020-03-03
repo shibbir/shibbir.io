@@ -75,3 +75,8 @@ li code {
 .post-title {
     font-weight: bold;
 }
+
+nav ul {
+    display: flex;
+    justify-content: center;
+}
