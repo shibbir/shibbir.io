@@ -64,7 +64,6 @@ li code {
 .menu a:visited,
 .readmore a:visited,
 .post-meta a:visited {
-    color: #00d1b2;
     font-weight: bold;
 }
 
@@ -79,4 +78,8 @@ li code {
 nav ul {
     display: flex;
     justify-content: center;
+}
+
+nav ul li {
+    text-transform: none;
 }

@@ -6,6 +6,7 @@
   "dependencies": {
     "@mdx-js/mdx": "^1.5.5",
     "@mdx-js/react": "^1.5.5",
+    "axios": "^0.19.2",
     "disqus-react": "^1.0.7",
     "gatsby": "^2.19.12",
     "gatsby-plugin-manifest": "^2.2.40",

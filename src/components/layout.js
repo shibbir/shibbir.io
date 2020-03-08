@@ -9,36 +9,14 @@ const Layout = ({ children }) => {
         <>
             <header id="site-head" role="banner">
                 <h1 className="blog-title">
-                    <a href="/">Shibbir Ahmed</a>
+                    <a href="/">SHIBBIR AHMED</a>
                 </h1>
 
                 <nav className="menu" role="navigation">
                     <ul>
-                        <li>
-                            <a href="https://github.com/shibbir">
-                                <i className="fa fa-github fa-2x"></i>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="https://twitter.com/shibbir_io">
-                                <i className="fa fa-twitter fa-2x"></i>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="https://www.linkedin.com/in/shibbirahmed/">
-                                <i className="fa fa-linkedin fa-2x"></i>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="https://stackoverflow.com/users/1493274/shibbir-ahmed">
-                                <i className="fa fa-stack-overflow fa-2x"></i>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="https://www.instagram.com/shibbir.io/">
-                                <i className="fa fa-instagram fa-2x"></i>
-                            </a>
-                        </li>
+                        <li><a href="/about">About</a></li>
+                        <li><a href="/projects">Projects</a></li>
+                        <li><a href="/recommended-reading">Recommended Reading</a></li>
                     </ul>
                 </nav>
             </header>
