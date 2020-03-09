@@ -85,12 +85,6 @@ nav ul li {
     justify-content: center;
 }
 
-.container {
-    max-width: 800px;
-    margin: auto;
-    padding: 10px;
-}
-
 .page-title {
     color: #000;
 }
@@ -105,19 +99,30 @@ nav ul li {
     margin: 12px;
 }
 
+.books a:nth-child(1),
+.books a:nth-child(5),
+.books a:nth-child(9),
+.books a:nth-child(13),
+.books a:nth-child(17),
+.books a:nth-child(21),
+.books a:nth-child(25)  {
+    margin-left: 0 !important;
+}
+
 .books a:hover {
     box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15) !important;
 }
 
 .books img {
-    height: 190px;
+    height: 200px;
     width: 150px;
 }
+
 img {
-    padding: .25rem;
+    padding: 0.25rem;
     background-color: #fff;
     border: 1px solid #dee2e6;
-    border-radius: .25rem;
+    border-radius: 0.25rem;
     display: block;
     max-width: 100%;
     height: auto;

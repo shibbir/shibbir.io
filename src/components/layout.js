@@ -16,12 +16,12 @@ const Layout = ({ children }) => {
                     <ul>
                         <li><a href="/about">About</a></li>
                         <li><a href="/projects">Projects</a></li>
-                        <li><a href="/recommended-reading">Recommended Reading</a></li>
+                        <li><a href="/reading">Reading</a></li>
                     </ul>
                 </nav>
             </header>
 
-            <main className="content">{children}</main>
+            {children}
 
             <footer className="site-footer" role="contentinfo">
                 <div className="inner">
