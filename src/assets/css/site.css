@@ -76,13 +76,13 @@ li code {
     font-weight: bold;
 }
 
-nav ul {
-    display: flex;
-    justify-content: center;
-}
-
 nav ul li {
     text-transform: none;
+}
+
+.menu ul {
+    display: flex;
+    justify-content: center;
 }
 
 .container {
@@ -102,7 +102,7 @@ nav ul li {
 }
 
 .books a {
-    margin: 0px 15px 15px 0px;
+    margin: 12px;
 }
 
 .books a:hover {

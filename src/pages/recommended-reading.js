@@ -27,7 +27,6 @@ export default class RecommendedReading extends React.Component {
             <Layout>
                 <SEO title="Projects" />
                 <div class="container">
-                    <h3 class="page-title"><u>Recommended Books</u></h3>
                     {bookItems.length > 0 && <div class="books">{bookItems}</div>}
                 </div>
             </Layout>
