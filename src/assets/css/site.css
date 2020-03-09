@@ -17,7 +17,8 @@ blockquote p {
 article,
 article.preview,
 a.archive-link,
-.article-nav {
+.article-nav,
+.container {
     max-width: 800px;
 }
 
@@ -82,4 +83,42 @@ nav ul {
 
 nav ul li {
     text-transform: none;
+}
+
+.container {
+    max-width: 800px;
+    margin: auto;
+    padding: 10px;
+}
+
+.page-title {
+    color: #000;
+}
+
+.books {
+    display: flex;
+    align-items: flex-start;
+    flex-wrap: wrap;
+}
+
+.books a {
+    margin: 0px 15px 15px 0px;
+}
+
+.books a:hover {
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15) !important;
+}
+
+.books img {
+    height: 190px;
+    width: 150px;
+}
+img {
+    padding: .25rem;
+    background-color: #fff;
+    border: 1px solid #dee2e6;
+    border-radius: .25rem;
+    display: block;
+    max-width: 100%;
+    height: auto;
 }

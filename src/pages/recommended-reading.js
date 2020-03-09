@@ -26,9 +26,10 @@ export default class RecommendedReading extends React.Component {
         return (
             <Layout>
                 <SEO title="Projects" />
-                <h1>Recommended Books</h1>
-
-                { bookItems.length > 0 && <div>{bookItems}</div> }
+                <div class="container">
+                    <h3 class="page-title"><u>Recommended Books</u></h3>
+                    {bookItems.length > 0 && <div class="books">{bookItems}</div>}
+                </div>
             </Layout>
         );
     }
