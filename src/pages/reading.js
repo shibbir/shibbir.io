@@ -9,6 +9,11 @@ export default class Reading extends React.Component {
         this.state = {
             books: [
                 {
+                    title: "Atomic Habits: An Easy & Proven Way to Build Good Habits & Break Bad",
+                    thumbnail: "https://images-na.ssl-images-amazon.com/images/I/51Eqf-URhoL.jpg",
+                    link: "https://www.amazon.com/Atomic-Habits-James-Clear/dp/1847941834/"
+                },
+                {
                     title: "Attitude Is Everything: Change Your Attitude... Change Your Life!",
                     thumbnail: "https://images-na.ssl-images-amazon.com/images/I/41uYDL7BThL._SX322_BO1,204,203,200_.jpg",
                     link: "https://www.amazon.com/Attitude-Everything-Change-Your-Life/dp/0979041031/"
@@ -19,9 +24,24 @@ export default class Reading extends React.Component {
                     link: "https://www.amazon.com/Clean-Architecture-Craftsmans-Software-Structure-dp-0134494164/dp/0134494164"
                 },
                 {
+                    title: "Code: The Hidden Language of Computer Hardware and Software",
+                    thumbnail: "https://images-na.ssl-images-amazon.com/images/I/41L1w%2BgbsZL.jpg",
+                    link: "https://www.amazon.com/Code-Language-Computer-Hardware-Software/dp/0735611319/"
+                },
+                {
                     title: "Domain-Driven Design: Tackling Complexity in the Heart of Software",
                     thumbnail: "https://images-na.ssl-images-amazon.com/images/I/51sZW87slRL._SX375_BO1,204,203,200_.jpg",
                     link: "https://www.amazon.com/Domain-Driven-Design-Tackling-Complexity-Software/dp/0321125215"
+                },
+                {
+                    title: "Eat That Frog!",
+                    thumbnail: "https://images-na.ssl-images-amazon.com/images/I/51DFpUVGkQL.jpg",
+                    link: "https://www.amazon.com/Eat-That-Frog-Great-Procrastinating/dp/162656941X"
+                },
+                {
+                    title: "Emotional Intelligence 2.0",
+                    thumbnail: "https://images-na.ssl-images-amazon.com/images/I/515plB5rn9L.jpg",
+                    link: "https://www.amazon.com/Emotional-Intelligence-2-0-Travis-Bradberry-ebook/dp/B002U3CBUW"
                 },
                 {
                     title: "How To Win Friends and Influence People",
@@ -44,6 +64,16 @@ export default class Reading extends React.Component {
                     link: "https://www.amazon.com/Mans-Search-Meaning-Viktor-Frankl/dp/0807014273"
                 },
                 {
+                    title: "Misbehaving: The Making of Behavioral Economics",
+                    thumbnail: "https://images-na.ssl-images-amazon.com/images/I/51dqaYXmQOL.jpg",
+                    link: "https://www.amazon.com/Misbehaving-Behavioral-Economics-Richard-Thaler/dp/039335279X/"
+                },
+                {
+                    title: "Never Split the Difference: Negotiating As If Your Life Depended On It",
+                    thumbnail: "https://images-na.ssl-images-amazon.com/images/I/51yKczFDuQL.jpg",
+                    link: "https://www.amazon.com/Never-Split-Difference-Negotiating-Depended/dp/0062407805"
+                },
+                {
                     title: "Peopleware: Productive Projects and Teams",
                     thumbnail: "https://images-na.ssl-images-amazon.com/images/I/51Jef3ZRN-L._SX341_BO1,204,203,200_.jpg",
                     link: "https://www.amazon.com/Peopleware-Productive-Projects-Teams-3rd-dp-0321934113/dp/0321934113"
@@ -54,9 +84,19 @@ export default class Reading extends React.Component {
                     link: "https://www.amazon.com/Rapid-Development-Taming-Software-Schedules-dp-1556159005/dp/1556159005"
                 },
                 {
+                    title: "Refactoring: Improving the Design of Existing Code",
+                    thumbnail: "https://images-na.ssl-images-amazon.com/images/I/41odjJlPgHL._SX402_BO1,204,203,200_.jpg",
+                    link: "https://www.amazon.com/Refactoring-Improving-Existing-Addison-Wesley-Signature-dp-0134757599/dp/0134757599"
+                },
+                {
                     title: "Rich Dad Poor Dad",
                     thumbnail: "https://images-na.ssl-images-amazon.com/images/I/51u8ZRDCVoL._SX330_BO1,204,203,200_.jpg",
                     link: "https://www.amazon.com/Rich-Dad-Poor-Teach-Middle/dp/1612680178"
+                },
+                {
+                    title: "Sapiens: A Brief History of Humankind",
+                    thumbnail: "https://images-na.ssl-images-amazon.com/images/I/51Sn8PEXwcL.jpg",
+                    link: "https://www.amazon.com/Sapiens-Humankind-Yuval-Noah-Harari/dp/0062316117"
                 },
                 {
                     title: "The 7 Habits of Highly Effective People",
@@ -84,9 +124,34 @@ export default class Reading extends React.Component {
                     link: "https://www.amazon.com/Mythical-Man-Month-Software-Engineering-Anniversary-dp-0201835959/dp/0201835959"
                 },
                 {
+                    title: "The New One Minute Manager",
+                    thumbnail: "https://images-na.ssl-images-amazon.com/images/I/513RrFGNeiL.jpg",
+                    link: "https://www.amazon.com/New-One-Minute-Manager/dp/0062367544/"
+                },
+                {
+                    title: "The Passionate Programmer: Creating a Remarkable Career in Software Development",
+                    thumbnail: "https://images-na.ssl-images-amazon.com/images/I/51m3yzmDFCL._SX331_BO1,204,203,200_.jpg",
+                    link: "https://www.amazon.com/Passionate-Programmer-Remarkable-Development-Pragmatic-dp-1934356344/dp/1934356344"
+                },
+                {
+                    title: "The Phoenix Project: A Novel about IT, DevOps, and Helping Your Business Win",
+                    thumbnail: "https://images-na.ssl-images-amazon.com/images/I/51Eie0TeStL._SX333_BO1,204,203,200_.jpg",
+                    link: "https://www.amazon.com/Phoenix-Project-DevOps-Helping-Business/dp/0988262592"
+                },
+                {
                     title: "The Pragmatic Programmer",
                     thumbnail: "https://images-na.ssl-images-amazon.com/images/I/51cUVaBWZzL._SX380_BO1,204,203,200_.jpg",
                     link: "https://www.amazon.com/Pragmatic-Programmer-journey-mastery-Anniversary/dp/0135957052"
+                },
+                {
+                    title: "The Richest Man in Babylon",
+                    thumbnail: "https://images-na.ssl-images-amazon.com/images/I/51u3CVGs60L.jpg",
+                    link: "https://www.amazon.com/Richest-Man-Babylon-George-Clason-ebook/dp/B07LGGDYJT"
+                },
+                {
+                    title: "Think and Grow Rich",
+                    thumbnail: "https://images-na.ssl-images-amazon.com/images/I/51ncDBWm8ZL.jpg",
+                    link: "https://www.amazon.com/Think-Grow-Rich-Original-RevisedTM/dp/0990797600"
                 },
                 {
                     title: "To Pixar and Beyond",

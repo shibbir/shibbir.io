@@ -105,7 +105,8 @@ nav ul li {
 .books a:nth-child(13),
 .books a:nth-child(17),
 .books a:nth-child(21),
-.books a:nth-child(25)  {
+.books a:nth-child(25),
+.books a:nth-child(29)  {
     margin-left: 0 !important;
 }
 
