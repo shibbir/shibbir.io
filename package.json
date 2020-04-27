@@ -4,7 +4,7 @@
   "version": "0.2.0",
   "author": "Shibbir Ahmed",
   "dependencies": {
-    "@mdx-js/mdx": "^1.5.5",
+    "@mdx-js/mdx": "^1.5.8",
     "@mdx-js/react": "^1.5.5",
     "disqus-react": "^1.0.7",
     "gatsby": "^2.19.12",
