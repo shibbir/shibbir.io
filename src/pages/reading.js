@@ -44,6 +44,11 @@ export default class Reading extends React.Component {
                     link: "https://www.amazon.com/Emotional-Intelligence-2-0-Travis-Bradberry-ebook/dp/B002U3CBUW"
                 },
                 {
+                    title: "Factfulness",
+                    thumbnail: "https://images-na.ssl-images-amazon.com/images/I/51tvugRSHKL._SX322_BO1,204,203,200_.jpg",
+                    link: "https://www.amazon.com/Factfulness-Reasons-World-Things-Better/dp/1250107814"
+                },
+                {
                     title: "How To Win Friends and Influence People",
                     thumbnail: "https://images-na.ssl-images-amazon.com/images/I/516c0M%2B4C%2BL._SX322_BO1,204,203,200_.jpg",
                     link: "https://www.amazon.com/How-Win-Friends-Influence-People/dp/1439167346"

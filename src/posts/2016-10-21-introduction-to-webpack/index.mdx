@@ -1,26 +1,26 @@
 ---
 slug: introduction-to-webpack
-title: Introduction to Webpack
+title: Introduction To Webpack
 date: 2016-10-21
 category: javascript
-excerpt: Webpack is a module bundler. Modules are like small chunk of code that can be reused or distributed among other projects. Most of the programming languages have some sort of features that offers a way to partition of code. Unfortunately, JavaScript doesn't have a...
+excerpt: Webpack is a module bundler. Modules are like a small chunk of code that can be reused or distributed among other projects. Most of the programming languages have some sort of features that offers a way to partition code. Unfortunately, JavaScript doesn't have a...
 ---
 
 ## Introduction
 
-[Webpack](https://webpack.github.io/) is a module bundler. Modules are like small chunk of code that can be reused or distributed among other projects. Most of the programming languages have some sort of features that offers a way to partition of code. Unfortunately, JavaScript doesn't have a built in module system, except for, distributing code over different files. But fortunately there are some standards available that we can use to create module in JavaScript.
+[Webpack](https://webpack.github.io/) is a module bundler. Modules are like a small chunk of code that can be reused or distributed among other projects. Most of the programming languages have some sort of features that offers a way to partition code. Unfortunately, JavaScript doesn't have a built-in module system, except for, distributing code over different files. But fortunately, there are some standards available that we can use to create a module in JavaScript.
 
-Some standards to define module in JavaScript:
+Some standards to define the module in JavaScript:
 
 * CommonJS: A synchronous way to load modules. Node.js uses this module system.
 * AMD(Asynchronous Module Definition): RequireJS is the most popular implementation.
 * ES6 modules
 
-Webpack supports all those module systems. By using webpack, developer can choose their favorite module system. Webpack also makes it easy to add custom module styles. Webpack can also replace grunt/gulp as your only build tool. It also has [Code Splitting](http://webpack.github.io/docs/code-splitting.html) feature which is very cool.
+Webpack supports all those module systems. By using webpack, the developer can choose their favorite module system. Webpack also makes it easy to add custom module styles. Webpack can also replace grunt/gulp as your only build tool. It also has [Code Splitting](http://webpack.github.io/docs/code-splitting.html) feature which is very cool.
 
 ## Lets get started
 
-Lets say we have two JavaScript modules in our application and we want to load those in correct order. We want **module1.js** to be loaded first and then we want to load **module2.js**. We will do something similar to this:
+Let's say we have two JavaScript modules in our application and we want to load those in the correct order. We want **module1.js** to be loaded first and then we want to load **module2.js**. We will do something similar to this:
 
 #### index.html
 
@@ -46,11 +46,11 @@ console.log('This is module 1');
 console.log('This is module 2');
 ```
 
-The problem is we are making two HTTP request to load those two modules. Also those modules can have their own dependencies to other modules and we also want them to load in a correct order. This is where we would normally use a build tool like gulp or grunt to bundle those modules in a single file. However, in this case we will use webapck to do the bundling for us.
+The problem is we are making two HTTP requests to load those two modules. Also, those modules can have their dependencies on other modules and we also want them to load in the correct order. This is where we would normally use a build tool like gulp or grunt to bundle those modules in a single file. However, in this case, we will use webapck to do the bundling for us.
 
-So we want a single entry file that will eventually load other modules in a correct order.
+So we want a single entry file that will eventually load other modules in the correct order.
 
-Lets call that single entry file as `app.js` that **requires** module1 and module2
+Let's call that single entry file as `app.js` that **requires** module1 and module2
 
 ```javascript
 require('./module1.js');
@@ -68,7 +68,7 @@ and we need to reference `app.js` in our page that will eventually load module1 
 </html>
 ```
 
-Now, if you run this in browser you will see `Uncaught ReferenceError: require is not defined` error in your browser development console. That's because if you look at `app.js`, we loads module1 and module2 using CommonJS style which is not supported in browser. It only works in Node.js environment. This is the place where we need to use webpack so that it will transform/bundle those modules in a way that browser can understand.
+Now, if you run this in the browser you will see the `Uncaught ReferenceError: require is not defined` error in your browser developer console. That's because if you look at `app.js`, we load module1 and module2 using CommonJS style which is not supported in the browser. It only works in the Node.js environment. This is the place where we need to use webpack so that it will transform/bundle those modules in a way that browser can understand.
 
 ## Installing Webpack
 
@@ -89,13 +89,13 @@ npm install -g webpack
 npm install -D webpack
 ```
 
-Now, lets bundle those modules by simply writing this:
+Now, let's bundle those modules by simply writing this:
 
 ```bash
 webpack ./app.js app.bundle.js
 ```
 
-So we tell webpack what is our source file and also the destination file. You will webpack creates a `app.bundle.js` in your project root (this is also configurable).
+So we tell webpack what is our source file and also the destination file. Webpack will create an `app.bundle.js` in your project root (this is also configurable).
 
 ![](https://res.cloudinary.com/shibbir/image/upload/v1477784776/webpack_pzoexp.png)
 
@@ -122,7 +122,7 @@ module.exports = {
     }
 };
 ```
-The above code is same as running `webpack ./app.js app.bundle.js`, but as you can see this is much more expressive than using the command line.
+The above code is the same as running `webpack ./app.js app.bundle.js`, but as you can see this is much more expressive than using the command line.
 
 ## Using plugins
 
@@ -144,11 +144,11 @@ module.exports = {
 };
 ```
 
-Webpack came with some built in plugins. Here we are using `DedupePlugin` and `UglifyJsPlugin` plugin. You can find a list of plugins [here](http://webpack.github.io/docs/list-of-plugins.html). If your run `webpack` command again you will see `app.bundle.js` is now minified.
+Webpack came with some built-in plugins. Here we are using the `DedupePlugin` and `UglifyJsPlugin` plugin. You can find a list of plugins [here](http://webpack.github.io/docs/list-of-plugins.html). If your run `webpack` command again you will see `app.bundle.js` is now minified.
 
 ## Multiple entry points
 
-You can also create multiple bundles for multiple HTML pages. So for example if you have two html pages `pageA` and `pageB`, for those you want to create individual bundles. You can do the following configuration in `webpack.config.js`:
+You can also create multiple bundles for multiple HTML pages. So for example if you have two HTML pages `pageA` and `pageB`, for those you want to create individual bundles. You can do the following configuration in `webpack.config.js`:
 
 ```javascript
 var path = require('path');

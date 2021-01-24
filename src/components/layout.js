@@ -28,9 +28,6 @@ const Layout = ({ children }) => {
                     <section className="copyright">
                         &copy; {new Date().getFullYear()} <a href="/">SHIBBIR AHMED</a>. ALL RIGHTS RESERVED.
                     </section>
-                    <section className="poweredby">
-                        Proudly published with <a href="https://www.netlify.com/">netlify</a>
-                    </section>
                 </div>
             </footer>
         </>

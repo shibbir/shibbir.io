@@ -1,14 +1,14 @@
 ---
 slug: beginning-indexeddb-with-idbwrapper
-title: Beginning IndexedDB with IDBWrapper
+title: Beginning IndexedDB With IDBWrapper
 date: 2013-08-04
 category: web
-excerpt: In this article we will see how we can use indexeddb which is a browser based database with a library called IDBWrapper to ease the use of indexedDB and abstract away the differences between the existing implementations...
+excerpt: In this article, we will see how we can use indexeddb which is a browser-based database with a library called IDBWrapper to ease the use of indexedDB and abstract away the differences between the existing implementations...
 ---
 
 ## Introduction
 
-In this article we will see how we can use **IndexedDB** which is a browser based database with a library called **IDBWrapper** to ease the use of indexedDB and abstract away the differences between the existing implementations in Chrome, Firefox and IE10.
+In this article, we will see how we can use **IndexedDB** which is a browser-based database with a library called **IDBWrapper** to ease the use of indexedDB and abstract away the differences between the existing implementations in Chrome, Firefox, and IE10.
 
 ## What's an IndexedDB
 
@@ -18,11 +18,11 @@ According to [MDN](https://developer.mozilla.org/en-US/docs/Web/API/IndexedDB_AP
 
 Basically, its a set of "object stores". An [object store](http://www.w3.org/TR/IndexedDB/#object-store-concept) is just a mechanism for storing data in a database. The stores are like a table in SQL database. You can have as many databases as you like, and as many stores(or tables) within each database. Unlike the [LocalStorage](https://developer.mozilla.org/en/docs/Web/API/Window/localStorage), which is based on named key/value pairs, IndexedDB supports the storage of structured data.
 
-The biggest advantages of IndexedDB is that its provides good search performance, since data can be indexed according to search keys.
+The biggest advantage of IndexedDB is that it provides good search performance since data can be indexed according to search keys.
 
 ## What's IDBWrapper
 
-The API that IndexedDB provides are quite complex. To overcome this complexity, [IDBWrapper](https://jensarps.github.io/IDBWrapper/), which is an excellent library, provides a wrapper for IndexedDB which is easier to use. According to the library:
+The API that IndexedDB provides is quite complex. To overcome this complexity, [IDBWrapper](https://jensarps.github.io/IDBWrapper/), which is an excellent library, provides a wrapper for IndexedDB which is easier to use. According to the library:
 
 > IDBWrapper is a cross-browser wrapper for the HTML5 IndexedDB API. While this API is the future of offline storage, it is not very intuitive to use. IDBWrapper is there to provide easy access to IndexedDB's features.
 
@@ -62,7 +62,7 @@ Let's build a small todo application using IDBWrapper. First create a html file.
 </html>
 ```
 
-we have two input fields for the title and description of a todo. We have a button that's going to save that todo into our IndexedDB database. Then we added two scripts file before the closing body tag. **idbstore.min.js** file is the IDBWrapper library. And we also include a main.js file which we'll be create next.
+we have two input fields for the title and description of a todo. We have a button that's going to save that todo into our IndexedDB database. Then we added two scripts file before the closing body tag. **idbstore.min.js** file is the IDBWrapper library. And we also include a main.js file which we'll be creating next.
 
 #### Create a script file **main.js**:
 
@@ -147,7 +147,7 @@ function addTodo () {
 
 Here we just collect the title and description from the input fields and uses the IDBWrapper's `put()` method to save that todo into our todos table. And then after saving the data we called the `refreshTodo()` function that will redraw all the todos into our page. Pretty simple.
 
-Now, you'll noticed that we also put a button inside each row in our html table. that will call `deleteTodo()` function and we also passed an id to that function. Now, you'll be wondering where that id is came from. After all We didn’t specify anything like id. We only have title and description. So, here is the thing, when we create a todo object and store them in our todos table, the database will automatically add a unique key named "id". So, that’s where the id came from. However, we can tell the IDBWrapper to use our own custom field to use as an unique key by defining a **keyPath** property. See the [docs](https://github.com/jensarps/IDBWrapper) for more details.
+Now, you'll notice that we also put a button inside each row in our HTML table. that will call the `deleteTodo()` function and we also passed an id to that function. Now, you'll be wondering where that id comes from. After all, We didn’t specify anything like id. We only have a title and description. So, here is the thing, when we create a todo object and store them in our todos table, the database will automatically add a unique key named "id". So, that’s where the id came from. However, we can tell the IDBWrapper to use our custom field to use as a unique key by defining a **keyPath** property. See the [docs](https://github.com/jensarps/IDBWrapper) for more details.
 
 Finally, we need to create a `eleteTodo()` function:
 

@@ -1,6 +1,6 @@
 ---
 slug: introduction-to-gulp
-title: Introduction to Gulp
+title: Introduction To Gulp
 date: 2014-08-21
 category: javascript
 excerpt: Gulp is a cross-paltform task runner for web development. When working on a javascript projects, quite often we have to do some repetitive tasks such as minifying the css or javascript, concatenating them into one file to...
@@ -8,14 +8,12 @@ excerpt: Gulp is a cross-paltform task runner for web development. When working 
 
 > Note: This article is last updated on February 09, 2020 with Gulp 4.0.2
 
-[Gulp](https://gulpjs.com/) is a cross-paltform task runner for web development. When working on a javascript projects, quite often we have to do some repetitive tasks such as minifying the css or javascript,
-concatenating them into one file to reduce the HTTP round trip between server to the client browser, optimizing images, running the tests etc. Depending on the size of the projects, managing those tasks can be very time
-consuming and tedious. But with the help of a task runner you can really automate this whole process and just focus on the application.
+[Gulp](https://gulpjs.com/) is a cross-platform task runner for web development. When working on javascript projects, quite often we have to do some repetitive tasks such as minifying the CSS or javascript, concatenating them into one file to reduce the HTTP round trip between server to the client browser, optimizing images, running the tests, etc. Depending on the size of the projects, managing those tasks can be very time consuming and tedious. But with the help of a task runner, you can automate this whole process and just focus on the application.
 
 ## Installing Gulp
 
 Gulp is based on Node.js. Which means you have to download and install [node.js](https://nodejs.org). Go ahead and do that if you haven't already. Now before installing gulp in your project you need to install the
-gulp command line utility. [This article](https://medium.com/gulpjs/gulp-sips-command-line-interface-e53411d4467) explains why you need to install `gulp-cli`.
+gulp command-line utility. [This article](https://medium.com/gulpjs/gulp-sips-command-line-interface-e53411d4467) explains why you need to install `gulp-cli`.
 
 ```bash
 $ npm install gulp-cli --global
@@ -33,7 +31,7 @@ $ gulp --version
 
 Gulp exposes several api's to work. The most commons are:
 
-`src(globs, [options])`: Accepts a globs which is a string array and returns a stream that produces Vinyl objects. Vinyl is a metadata object that describes a file.
+`src(globs, [options])`: Accepts a glob which is a string array and returns a stream that produces Vinyl objects. Vinyl is a metadata object that describes a file.
 
 `dest(directory, [options])`: The path of the output directory where files will be written.
 
@@ -45,7 +43,7 @@ Gulp exposes several api's to work. The most commons are:
 
 ## Gulpfile
 
-Create a **_gulpfile.js_** or **_Gulpfile.js_** file in root directory that automatically loads when you run the `gulp` command. The syntax for gulp is `gulp <task> <othertask>`. Any exported functions from **_gulpfile.js_** will be registered
+Create a **_gulpfile.js_** or **_Gulpfile.js_** file in the root directory that automatically loads when you run the `gulp` command. The syntax for gulp is `gulp <task> <othertask>`. Any exported functions from **_gulpfile.js_** will be registered
 into gulp's task system. These functions are asynchronous that can return streams, promises, event emitters, child processes, or observables.
 
 ```javascript
@@ -90,8 +88,8 @@ exports.simultaneousBuild = parallel(javascript, css);
 
 ## Using Plugins
 
-Gulp plugins are small utility library that encapsulate common functionality to transform files in a pipeline. You can use multiple plugins in a single task. Plugins are a great way to reuse functionality from different
-places in Gulpfile. Currently there are 3807 plugins available and the list is still growing. You can use plugins to do things like css minification, concatenating javascripts, running server etc. Lets look at some
+Gulp plugins are small utility libraries that encapsulate common functionality to transform files in a pipeline. You can use multiple plugins in a single task. Plugins are a great way to reuse functionality from different
+places in Gulpfile. Currently, there are 3807 plugins available and the list is still growing. You can use plugins to do things like CSS minification, concatenating javascript, running server, etc. Let's look at some
 examples of such things using gulp:
 
 #### Example #1: Sass compilation and css minification
@@ -118,8 +116,8 @@ exports.css = css;
 
 ```
 
-First we brought in the required libraries. Then, we created a task called `style`. Inside that task we told gulp what is the file path for our scss file using `src` api. Than we compile it down to css using the `sass()` method that
-[gulp-sass](https://www.npmjs.com/package/gulp-sass) plugin provides. After that we minified the compiled css file. Finally we specified the destination for our output file. You can see that we can chain methods together to describe our tasks.
+First, we brought in the required libraries. Then, we created a task called `style`. Inside that task, we told gulp what is the file path for our scss file using `src` api. Then we compile it down to CSS using the `sass()` method that
+[gulp-sass](https://www.npmjs.com/package/gulp-sass) plugin provides. After that, we minified the compiled CSS file. Finally, we specified the destination for our output file. You can see that we can chain methods together to describe our tasks.
 
 #### Example #2: TypeScript to JavaScript compilation
 
@@ -250,8 +248,8 @@ $ gulp build // execute css and javascript tasks simultaneously
 
 ## Wrap up
 
-Easy, right? Although we've gone through only the basics of Gulp. Gulp can do much more than this and can be very complex or very simple depending on the project. Here are some important ponits to remember:
+Easy, right? Although we've gone through only the basics of Gulp. Gulp can do much more than this and can be very complex or very simple depending on the project. Here are some important points to remember:
 * Each gulp task is an asynchronous JavaScript function. Synchronous tasks aren't supported, though there is a [alternative](https://gulpjs.com/docs/en/getting-started/async-completion#using-async-await).
 * Tasks can be considered public or private. Public tasks are exported from your gulpfile. Private tasks are made to be used internally.
-* If your gulpfile become too big, you can split each task into its own file. More on [here](https://gulpjs.com/docs/en/getting-started/javascript-and-gulpfiles#splitting-a-gulpfile).
-* You can write a gulpfile using TypeScript or Babel. For TypeScript, rename to `gulpfile.ts` and for Babel, rename to `gulpfile.babel.js`. More on [here](https://gulpjs.com/docs/en/getting-started/javascript-and-gulpfiles#transpilation).
+* If your gulpfile becomes too big, you can split each task into its own file. More on [here](https://gulpjs.com/docs/en/getting-started/javascript-and-gulpfiles#splitting-a-gulpfile).
+* You can write a gulpfile using TypeScript or Babel. For TypeScript, rename to `gulpfile.ts`, and for Babel, rename to `gulpfile.babel.js`. More on [here](https://gulpjs.com/docs/en/getting-started/javascript-and-gulpfiles#transpilation).

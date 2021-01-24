@@ -4,22 +4,14 @@ h2 {
     text-decoration: underline;
 }
 
-blockquote {
-    font-size: 1.1em;
-}
-
-blockquote p {
-    font-style: normal;
-    text-transform: none;
-}
-
 #site-head,
+nav,
 article,
 article.preview,
 a.archive-link,
 .article-nav,
 .container {
-    max-width: 800px;
+    max-width: 700px;
 }
 
 p code,
@@ -68,8 +60,13 @@ li code {
     font-weight: bold;
 }
 
-.post-meta {
-    text-transform: none;
+.readmore a {
+    font-size: 15px;
+    text-decoration: underline;
+}
+
+.post header {
+    margin-bottom: 50px;
 }
 
 .post-title {
@@ -96,7 +93,7 @@ nav ul li {
 }
 
 .books a {
-    margin: 12px;
+    margin: 8px;
 }
 
 .books a:nth-child(1),
@@ -111,12 +108,13 @@ nav ul li {
 }
 
 .books a:hover {
-    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15) !important;
+    box-shadow: 0 0.2rem 0.7rem rgba(0, 0, 0, 0.15) !important;
 }
 
 .books img {
     height: 200px;
     width: 150px;
+    border-radius: 0;
 }
 
 img {
