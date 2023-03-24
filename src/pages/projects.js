@@ -1,13 +1,13 @@
 import React from "react";
 
 import Layout from "../components/layout";
-import SEO from "../components/seo";
+import Seo from "../components/seo";
 
-const NotFoundPage = () => (
+const Projects = () => (
     <Layout>
-        <SEO title="Projects" />
+        <Seo title="Projects" />
         <h1>Projects</h1>
     </Layout>
 );
 
-export default NotFoundPage;
+export default Projects;

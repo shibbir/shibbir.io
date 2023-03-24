@@ -1,7 +1,7 @@
 import React from "react";
 import { graphql } from "gatsby";
 
-import SEO from "../components/seo";
+import Seo from "../components/seo";
 import Layout from "../components/layout";
 
 export default function Posts({ data }) {
@@ -31,7 +31,7 @@ export default function Posts({ data }) {
 
     return (
         <Layout>
-            <SEO title="Blog" keywords={["gatsby", "react"]} />
+            <Seo title="Blog" keywords={["gatsby", "react"]} />
 
             {Posts}
         </Layout>
@@ -41,8 +41,8 @@ export default function Posts({ data }) {
 export const pageQuery = graphql`
     query($category: String) {
         allMdx(
-            filter: { frontmatter: { category: { eq: $category } } }
-            sort: { fields: [frontmatter___date], order: DESC }
+            filter: { frontmatter: { category: { eq: $category }}}
+            sort: { frontmatter: { date: DESC }}
         ) {
             edges {
                 node {

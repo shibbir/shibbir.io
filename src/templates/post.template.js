@@ -1,48 +1,42 @@
 import React from "react";
-import { graphql } from "gatsby";
-import { Helmet } from "react-helmet";
-import { MDXRenderer } from "gatsby-plugin-mdx";
+import { graphql, Link } from "gatsby";
 
+import Seo from "../components/seo";
 import Layout from "../components/layout";
 import Disqus from "../components/disqus";
 
-export default ({ data: { mdx } }) => {
-    const { frontmatter } = mdx;
-
+function PostTemplate({ data: { mdx }, children }) {
     return (
         <Layout>
-            <Helmet>
-                <title>{frontmatter.title}</title>
-            </Helmet>
-
             <main className="content" role="main">
                 <article className="post">
                     <header>
-                        <h1 className="post-title">{frontmatter.title}</h1>
+                        <h1 className="post-title">{mdx.frontmatter.title}</h1>
                         <div className="post-meta">
-                            <time className="post-date">Posted on {frontmatter.date}</time> — in{" "}
-                            <a href={`/categories/${frontmatter.category}`}>{frontmatter.category}</a>
+                            <time className="post-date">Posted on {mdx.frontmatter.date}</time> — in{" "}
+                            <Link to={`/categories/${mdx.frontmatter.category}`}>{mdx.frontmatter.category}</Link>
                         </div>
                     </header>
 
                     <section className="post-content">
-                        <MDXRenderer>{mdx.body}</MDXRenderer>
+                        {children}
                     </section>
 
                     <br />
 
-                    <Disqus slug={frontmatter.slug} title={frontmatter.title} />
+                    <Disqus slug={mdx.frontmatter.slug} title={mdx.frontmatter.title} />
                 </article>
             </main>
         </Layout>
     );
 };
 
-export const pageQuery = graphql`
-    query($id: String) {
+export const Head = ({ data: { mdx } }) => <Seo title={mdx.frontmatter.title} />;
+
+export const query = graphql`
+    query ($id: String) {
         mdx(id: { eq: $id }) {
             id
-            body
             frontmatter {
                 slug
                 title
@@ -52,3 +46,5 @@ export const pageQuery = graphql`
         }
     }
 `;
+
+export default PostTemplate;

@@ -7,7 +7,7 @@ const Pagination = ({ currentPage, numPages }) => {
         <nav className="pagination" role="navigation">
             {currentPage !== 1 ? (
                 <a className="newer-posts" href={previousUrl}>
-                    <i className="fa fa-chevron-circle-left"></i> Newer
+                    <i className="fa fa-chevron-circle-left"></i> Prev
                 </a>
             ) : (
                 <div/>
@@ -19,7 +19,7 @@ const Pagination = ({ currentPage, numPages }) => {
 
             {currentPage < numPages ? (
                 <a className="older-posts" href={`/pages/${currentPage + 1}`}>
-                    Older <i className="fa fa-chevron-circle-right"></i>
+                    Next <i className="fa fa-chevron-circle-right"></i>
                 </a>
             ) : (
                 <div/>

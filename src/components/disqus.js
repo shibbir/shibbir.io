@@ -1,12 +1,14 @@
 import React from "react";
-import Disqus from "disqus-react";
+import { Disqus } from "gatsby-plugin-disqus";
 
-export default ({ slug, title }) => {
-    const disqusShortname = "shibbir";
-    const disqusConfig = {
+const DisqusComponent = ({ slug, title }) => {
+    const config = {
         url: `https://shibbir.io${slug}`,
-        title: title
+        identifier: slug,
+        title
     };
 
-    return <Disqus.DiscussionEmbed shortname={disqusShortname} config={disqusConfig} />;
+    return <Disqus config={config} />;
 };
+
+export default DisqusComponent;

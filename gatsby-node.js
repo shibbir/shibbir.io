@@ -13,6 +13,9 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
                             slug
                             category
                         }
+                        internal {
+                            contentFilePath
+                        }
                     }
                 }
             }
@@ -20,12 +23,13 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
     `);
 
     if (result.errors) {
-        reporter.panicOnBuild('🚨 ERROR: Loading "createPages" query');
+        reporter.panicOnBuild("Error loading MDX result", result.errors);
     }
 
     const posts = result.data.allMdx.edges;
     const postsPerPage = 5;
     const numPages = Math.ceil(posts.length / postsPerPage);
+    const postTemplate = path.resolve("./src/templates/post.template.js");
 
     Array.from({ length: numPages }).forEach((_, i) => {
         createPage({
@@ -35,7 +39,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
                 limit: postsPerPage,
                 skip: i * postsPerPage,
                 currentPage: i + 1,
-                numPages: numPages
+                numPages
             }
         });
     });
@@ -43,7 +47,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
     posts.forEach(({ node }) => {
         createPage({
             path: node.frontmatter.slug,
-            component: path.resolve("./src/templates/post.template.js"),
+            component: `${postTemplate}?__contentFilePath=${node.internal.contentFilePath}`,
             context: { id: node.id }
         });
 

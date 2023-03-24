@@ -1,9 +1,9 @@
 import React from "react";
 
-import SEO from "../components/seo";
+import Seo from "../components/seo";
 import Layout from "../components/layout";
 
-export default class Reading extends React.Component {
+export default class Readings extends React.Component {
     constructor() {
         super();
         this.state = {
@@ -182,7 +182,7 @@ export default class Reading extends React.Component {
         return (
             <Layout>
                 <main className="content" role="main">
-                    <SEO title="Projects" />
+                    <Seo title="Projects" />
                     <article className="post">
                         <section className="post-content">
                             <p>

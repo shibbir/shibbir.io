@@ -1,7 +1,7 @@
 import React from "react";
-import { graphql } from "gatsby";
+import { graphql, Link } from "gatsby";
 
-import SEO from "../components/seo";
+import Seo from "../components/seo";
 import Layout from "../components/layout";
 import Pagination from "../components/pagination";
 
@@ -10,11 +10,11 @@ export default function Posts({ data, pageContext }) {
         <article className="preview" key={edge.node.id}>
             <header>
                 <h1 className="post-title">
-                    <a href={`/${edge.node.frontmatter.slug}`}>{edge.node.frontmatter.title}</a>
+                    <Link to={`/${edge.node.frontmatter.slug}`}>{edge.node.frontmatter.title}</Link>
                 </h1>
                 <div className="post-meta">
                     <time className="post-date">Posted on {edge.node.frontmatter.date}</time> — in{" "}
-                    <a href={`/categories/${edge.node.frontmatter.category}`}>{edge.node.frontmatter.category}</a>
+                    <Link to={`/categories/${edge.node.frontmatter.category}`}>{edge.node.frontmatter.category}</Link>
                 </div>
             </header>
 
@@ -22,9 +22,9 @@ export default function Posts({ data, pageContext }) {
                 <p>{edge.node.frontmatter.excerpt}</p>
 
                 <p className="readmore">
-                    <a href={`/${edge.node.frontmatter.slug}`}>
+                    <Link to={edge.node.frontmatter.slug}>
                         Read this article <i className="fa fa-chevron-circle-right"></i>
-                    </a>
+                    </Link>
                 </p>
             </section>
         </article>
@@ -32,7 +32,7 @@ export default function Posts({ data, pageContext }) {
 
     return (
         <Layout>
-            <SEO title="Blog" keywords={["gatsby", "react"]} />
+            <Seo title="Blog" keywords={["gatsby", "react"]} />
 
             {Posts}
 
@@ -41,9 +41,9 @@ export default function Posts({ data, pageContext }) {
     );
 }
 
-export const pageQuery = graphql`
+export const query = graphql`
     query($skip: Int!, $limit: Int!) {
-        allMdx(sort: { fields: [frontmatter___date], order: DESC }, limit: $limit, skip: $skip) {
+        allMdx(sort: { frontmatter: { date: DESC }}, limit: $limit, skip: $skip) {
             edges {
                 node {
                     id
