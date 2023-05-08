@@ -8,7 +8,7 @@ body {
     margin: 0;
     padding: 0;
     -webkit-font-smoothing: subpixel-antialiased;
-    font-family: "Merriweather", "Open Sans", "Helvetica Neue", Helvetica, Arial, "Nimbus L", sans-serif;
+    font-family: "Open Sans";
 }
 body * {
     max-height: 1000000em;
@@ -181,7 +181,7 @@ blockquote {
     padding-left: 1em;
 }
 blockquote p {
-    font-size: 0.70em;
+    font-size: 0.7em;
     font-weight: 300;
     line-height: 1.2em;
     font-style: normal;

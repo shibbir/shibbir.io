@@ -9,9 +9,17 @@ module.exports = {
         {
             resolve: "gatsby-plugin-mdx",
             options: {
-                gatsbyRemarkPlugins: [{
-                    resolve: "gatsby-remark-images"
-                }]
+                gatsbyRemarkPlugins: [
+                    {
+                        resolve: "gatsby-remark-images",
+                        options: {
+                            showCaptions: true,
+                            markdownCaptions: true,
+                            quality: 100,
+                            maxWidth: 800
+                        }
+                    }
+                ]
             }
         },
         {
@@ -32,12 +40,25 @@ module.exports = {
                 // https://css-tricks.com/meta-theme-color-and-trickery/
                 // theme_color: "#663399",
                 display: "minimal-ui",
-                icon: "src/images/favicon.png"
+                icon: "src/assets/favicon.png"
             }
         },
         {
             resolve: "gatsby-plugin-disqus",
             options: { shortname: process.env.DISQUS_SHORTNAME }
+        },
+        {
+            resolve: "gatsby-omni-font-loader",
+            options: {
+                enableListener: true,
+                preconnect: ["https://fonts.googleapis.com", "https://fonts.gstatic.com"],
+                web: [
+                    {
+                        name: "Open Sans",
+                        file: "https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap"
+                    }
+                ]
+            }
         }
     ]
 };

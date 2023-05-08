@@ -42,8 +42,8 @@ export default function Posts({ data, pageContext }) {
 }
 
 export const query = graphql`
-    query($skip: Int!, $limit: Int!) {
-        allMdx(sort: { frontmatter: { date: DESC }}, limit: $limit, skip: $skip) {
+    query ($skip: Int!, $limit: Int!) {
+        allMdx(sort: { frontmatter: { date: DESC } }, limit: $limit, skip: $skip) {
             edges {
                 node {
                     id

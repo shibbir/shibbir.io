@@ -39,11 +39,8 @@ export default function Posts({ data }) {
 }
 
 export const pageQuery = graphql`
-    query($category: String) {
-        allMdx(
-            filter: { frontmatter: { category: { eq: $category }}}
-            sort: { frontmatter: { date: DESC }}
-        ) {
+    query ($category: String) {
+        allMdx(filter: { frontmatter: { category: { eq: $category } } }, sort: { frontmatter: { date: DESC } }) {
             edges {
                 node {
                     id

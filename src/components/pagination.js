@@ -10,7 +10,7 @@ const Pagination = ({ currentPage, numPages }) => {
                     <i className="fa fa-chevron-circle-left"></i> Prev
                 </a>
             ) : (
-                <div/>
+                <div />
             )}
 
             <span className="page-number">
@@ -22,7 +22,7 @@ const Pagination = ({ currentPage, numPages }) => {
                     Next <i className="fa fa-chevron-circle-right"></i>
                 </a>
             ) : (
-                <div/>
+                <div />
             )}
         </nav>
     );

@@ -18,9 +18,7 @@ function PostTemplate({ data: { mdx }, children }) {
                         </div>
                     </header>
 
-                    <section className="post-content">
-                        {children}
-                    </section>
+                    <section className="post-content">{children}</section>
 
                     <br />
 
@@ -29,7 +27,7 @@ function PostTemplate({ data: { mdx }, children }) {
             </main>
         </Layout>
     );
-};
+}
 
 export const Head = ({ data: { mdx } }) => <Seo title={mdx.frontmatter.title} />;
 

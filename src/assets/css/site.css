@@ -11,7 +11,7 @@ article.preview,
 a.archive-link,
 .article-nav,
 .container {
-    max-width: 700px;
+    max-width: 800px;
 }
 
 p code,
@@ -92,36 +92,23 @@ nav ul li {
     flex-wrap: wrap;
 }
 
-.books a {
-    margin: 8px;
-}
-
-.books a:nth-child(1),
-.books a:nth-child(5),
-.books a:nth-child(9),
-.books a:nth-child(13),
-.books a:nth-child(17),
-.books a:nth-child(21),
-.books a:nth-child(25),
-.books a:nth-child(29)  {
-    margin-left: 0 !important;
-}
-
-.books a:hover {
-    box-shadow: 0 0.2rem 0.7rem rgba(0, 0, 0, 0.15) !important;
-}
-
 .books img {
     height: 200px;
     width: 150px;
     border-radius: 0;
 }
 
+.gatsby-resp-image-figcaption {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.gatsby-resp-image-wrapper {
+    max-width: 800px !important;
+}
+
 img {
     padding: 0.25rem;
-    background-color: #fff;
-    border: 1px solid #dee2e6;
-    border-radius: 0.25rem;
     display: block;
     max-width: 100%;
     height: auto;
