@@ -1,7 +1,6 @@
 import React from "react";
 import { MDXProvider } from "@mdx-js/react";
-import Highlight, { defaultProps } from "prism-react-renderer";
-import theme from "prism-react-renderer/themes/nightOwl";
+import { Highlight, themes } from "prism-react-renderer";
 
 const components = {
     pre: props => {
@@ -10,10 +9,9 @@ const components = {
 
         return (
             <Highlight
-                {...defaultProps}
                 code={props.children.props.children.trim()}
                 language={matches && matches.groups && matches.groups.lang ? matches.groups.lang : ""}
-                theme={theme}
+                theme={themes.nightOwl}
             >
                 {({ className, style, tokens, getLineProps, getTokenProps }) => (
                     <pre className={className} style={style}>

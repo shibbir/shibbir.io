@@ -22,7 +22,7 @@ export default function Posts({ data, pageContext }) {
                 <p>{edge.node.frontmatter.excerpt}</p>
 
                 <p className="readmore">
-                    <Link to={edge.node.frontmatter.slug}>
+                    <Link to={`/${edge.node.frontmatter.slug}`}>
                         Read this article <i className="fa fa-chevron-circle-right"></i>
                     </Link>
                 </p>

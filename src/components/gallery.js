@@ -1,24 +1,22 @@
 import React from "react";
 import Carousel, { Modal, ModalGateway } from "react-images";
 
-export default class Gallery extends React.Component {
-    state = { modalIsOpen: false };
+const Gallery = ({ images }) => {
+    let modalIsOpen = false;
 
-    toggleModal = () => {
-        this.setState(state => ({ modalIsOpen: !state.modalIsOpen }));
+    const toggleModal = function () {
+        modalIsOpen = !modalIsOpen;
     };
 
-    render() {
-        const { modalIsOpen } = this.state;
+    return (
+        <ModalGateway>
+            {modalIsOpen ? (
+                <Modal onClose={toggleModal}>
+                    <Carousel views={images} />
+                </Modal>
+            ) : null}
+        </ModalGateway>
+    );
+};
 
-        return (
-            <ModalGateway>
-                {modalIsOpen ? (
-                    <Modal onClose={this.toggleModal}>
-                        <Carousel views={this.props.images} />
-                    </Modal>
-                ) : null}
-            </ModalGateway>
-        );
-    }
-}
+export default Gallery;

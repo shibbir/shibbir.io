@@ -1,8 +1,0 @@
-language: node_js
-node_js:
-  - "19"
-
-sudo: false
-
-branches:
-  only: master
