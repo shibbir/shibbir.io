@@ -1,7 +1,7 @@
 {
   "name": "shibbir.io",
   "description": "Source code of https://shibbir.io",
-  "version": "0.5.0",
+  "version": "0.6.0",
   "author": "Shibbir Ahmed",
   "dependencies": {
     "@mdx-js/react": "^3.1.0",

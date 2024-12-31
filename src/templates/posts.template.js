@@ -9,24 +9,14 @@ export default function Posts({ data, pageContext }) {
     const Posts = data.allMdx.edges.map(edge => (
         <article className="preview" key={edge.node.id}>
             <header>
-                <h1 className="post-title">
+                <h2 className="post-title">
                     <Link to={`/${edge.node.frontmatter.slug}`}>{edge.node.frontmatter.title}</Link>
-                </h1>
+                </h2>
                 <div className="post-meta">
                     <time className="post-date">Posted on {edge.node.frontmatter.date}</time> — in{" "}
                     <Link to={`/categories/${edge.node.frontmatter.category}`}>{edge.node.frontmatter.category}</Link>
                 </div>
             </header>
-
-            <section className="post-excerpt">
-                <p>{edge.node.frontmatter.excerpt}</p>
-
-                <p className="readmore">
-                    <Link to={`/${edge.node.frontmatter.slug}`}>
-                        Read this article <i className="fa fa-chevron-circle-right"></i>
-                    </Link>
-                </p>
-            </section>
         </article>
     ));
 

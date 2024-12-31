@@ -27,14 +27,6 @@ const Layout = ({ children }) => {
             </header>
 
             {children}
-
-            <footer className="site-footer" role="contentinfo">
-                <div className="inner">
-                    <section className="copyright">
-                        &copy; {new Date().getFullYear()} <a href="/">SHIBBIR AHMED</a>. ALL RIGHTS RESERVED.
-                    </section>
-                </div>
-            </footer>
         </>
     );
 };

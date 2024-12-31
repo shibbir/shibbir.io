@@ -143,9 +143,7 @@ const Readings = () => {
     ];
 
     const bookItems = books.map((book, index) => (
-        <a key={index} href={book.link}>
-            <img src={book.thumbnail} alt={book.title} />
-        </a>
+        <li><a key={index} href={book.link}>{book.title}</a></li>
     ));
 
     return (
@@ -155,7 +153,7 @@ const Readings = () => {
                 <article className="post">
                     <section className="post-content">
                         <h2>Non-academic books I've read so far</h2>
-                        {bookItems.length > 0 && <div className="books">{bookItems}</div>}
+                        {bookItems.length > 0 && <div className="books"><ul>{bookItems}</ul></div>}
                     </section>
                 </article>
             </main>

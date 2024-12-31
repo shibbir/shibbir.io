@@ -27,7 +27,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
     }
 
     const posts = result.data.allMdx.edges;
-    const postsPerPage = 5;
+    const postsPerPage = 6;
     const numPages = Math.ceil(posts.length / postsPerPage);
     const postTemplate = path.resolve("./src/templates/post.template.js");
 
