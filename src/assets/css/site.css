@@ -80,18 +80,6 @@ nav ul li {
     color: #000;
 }
 
-.books {
-    display: flex;
-    align-items: flex-start;
-    flex-wrap: wrap;
-}
-
-.books img {
-    height: 200px;
-    width: 150px;
-    border-radius: 0;
-}
-
 .gatsby-resp-image-figcaption {
     text-align: center;
     margin-top: 20px;
@@ -114,4 +102,8 @@ article.preview {
 
 a:hover {
     text-decoration: underline;
+}
+
+.books a {
+    display: block;
 }

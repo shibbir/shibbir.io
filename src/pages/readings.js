@@ -4,146 +4,122 @@ import Seo from "../components/seo";
 import Layout from "../components/layout";
 
 const Readings = () => {
-    const books = [
-        {
-            title: "Atomic Habits: An Easy & Proven Way to Build Good Habits & Break Bad",
-            thumbnail: "https://images-na.ssl-images-amazon.com/images/I/51Eqf-URhoL.jpg",
-            link: "https://www.amazon.com/Atomic-Habits-James-Clear/dp/1847941834/"
-        },
-        {
-            title: "Attitude Is Everything: Change Your Attitude... Change Your Life!",
-            thumbnail: "https://images-na.ssl-images-amazon.com/images/I/41uYDL7BThL._SX322_BO1,204,203,200_.jpg",
-            link: "https://www.amazon.com/Attitude-Everything-Change-Your-Life/dp/0979041031/"
-        },
+    const se_books = [
         {
             title: "Clean Architecture: A Craftsman's Guide to Software Structure and Design",
-            thumbnail: "https://images-na.ssl-images-amazon.com/images/I/51JF95r45vL._SX379_BO1,204,203,200_.jpg",
-            link: "https://www.amazon.com/Clean-Architecture-Craftsmans-Software-Structure-dp-0134494164/dp/0134494164"
+            link: "https://www.google.com/books/edition/Clean_Architecture/8ngAkAEACAAJ"
         },
         {
             title: "Code: The Hidden Language of Computer Hardware and Software",
-            thumbnail: "https://images-na.ssl-images-amazon.com/images/I/41L1w%2BgbsZL.jpg",
-            link: "https://www.amazon.com/Code-Language-Computer-Hardware-Software/dp/0735611319/"
+            link: "https://www.google.com/books/edition/Code/iNfPEAAAQBAJ"
         },
         {
             title: "Domain-Driven Design: Tackling Complexity in the Heart of Software",
-            thumbnail: "https://images-na.ssl-images-amazon.com/images/I/51sZW87slRL._SX375_BO1,204,203,200_.jpg",
-            link: "https://www.amazon.com/Domain-Driven-Design-Tackling-Complexity-Software/dp/0321125215"
-        },
-        {
-            title: "Eat That Frog!",
-            thumbnail: "https://images-na.ssl-images-amazon.com/images/I/51DFpUVGkQL.jpg",
-            link: "https://www.amazon.com/Eat-That-Frog-Great-Procrastinating/dp/162656941X"
-        },
-        {
-            title: "Factfulness",
-            thumbnail: "https://images-na.ssl-images-amazon.com/images/I/51tvugRSHKL._SX322_BO1,204,203,200_.jpg",
-            link: "https://www.amazon.com/Factfulness-Reasons-World-Things-Better/dp/1250107814"
-        },
-        {
-            title: "How To Win Friends and Influence People",
-            thumbnail: "https://images-na.ssl-images-amazon.com/images/I/516c0M%2B4C%2BL._SX322_BO1,204,203,200_.jpg",
-            link: "https://www.amazon.com/How-Win-Friends-Influence-People/dp/1439167346"
-        },
-        {
-            title: "Integrity: The Courage to Meet the Demands of Reality",
-            thumbnail: "https://images-na.ssl-images-amazon.com/images/I/41dZAEcGjVL._SX326_BO1,204,203,200_.jpg",
-            link: "https://www.amazon.com/Integrity-Courage-Meet-Demands-Reality/dp/006084969X/"
+            link: "https://www.google.com/books/edition/Domain_driven_Design/xColAAPGubgC"
         },
         {
             title: "Managing Humans: Biting and Humorous Tales of a Software Engineering Manager",
-            thumbnail: "https://images-na.ssl-images-amazon.com/images/I/51d7c8CjTDL._SX331_BO1,204,203,200_.jpg",
             link: "https://www.amazon.com/Managing-Humans-Humorous-Software-Engineering/dp/1484221575"
         },
         {
-            title: "Man's Search for Meaning",
-            thumbnail: "https://images-na.ssl-images-amazon.com/images/I/41s4xJZlEYL.jpg",
-            link: "https://www.amazon.com/Mans-Search-Meaning-Viktor-Frankl/dp/0807014273"
-        },
-        {
             title: "Peopleware: Productive Projects and Teams",
-            thumbnail: "https://images-na.ssl-images-amazon.com/images/I/51Jef3ZRN-L._SX341_BO1,204,203,200_.jpg",
             link: "https://www.amazon.com/Peopleware-Productive-Projects-Teams-3rd-dp-0321934113/dp/0321934113"
         },
         {
-            title: "Rich Dad Poor Dad",
-            thumbnail: "https://images-na.ssl-images-amazon.com/images/I/51u8ZRDCVoL._SX330_BO1,204,203,200_.jpg",
-            link: "https://www.amazon.com/Rich-Dad-Poor-Teach-Middle/dp/1612680178"
-        },
-        {
-            title: "Sapiens: A Brief History of Humankind",
-            thumbnail: "https://images-na.ssl-images-amazon.com/images/I/51Sn8PEXwcL.jpg",
-            link: "https://www.amazon.com/Sapiens-Humankind-Yuval-Noah-Harari/dp/0062316117"
-        },
-        {
-            title: "The 7 Habits of Highly Effective People",
-            thumbnail: "https://images-na.ssl-images-amazon.com/images/I/51fEYMhtHoL.jpg",
-            link: "https://www.amazon.com/Habits-Highly-Effective-People-Powerful-ebook/dp/B01069X4H0/"
-        },
-        {
-            title: "The Alchemist",
-            thumbnail: "https://images-na.ssl-images-amazon.com/images/I/51Z0nLAfLmL.jpg",
-            link: "https://www.amazon.com/Alchemist-Paulo-Coelho/dp/0062315005"
-        },
-        {
-            title: "The Art of Mental Training - A Guide to Performance Excellence",
-            thumbnail: "https://images-na.ssl-images-amazon.com/images/I/41dA6b-5hHL._SX331_BO1,204,203,200_.jpg",
-            link: "https://www.amazon.com/Art-Mental-Training-Performance-Excellence/dp/0615913547"
-        },
-        {
-            title: "The Compound Effect",
-            thumbnail: "https://images-na.ssl-images-amazon.com/images/I/51Bz60iDotL._SX359_BO1,204,203,200_.jpg",
-            link: "https://www.amazon.com/Compound-Effect-Darren-Hardy/dp/159315724X"
-        },
-        {
             title: "The Mythical Man-Month",
-            thumbnail: "https://images-na.ssl-images-amazon.com/images/I/51xCKsOn83L._SX334_BO1,204,203,200_.jpg",
             link: "https://www.amazon.com/Mythical-Man-Month-Software-Engineering-Anniversary-dp-0201835959/dp/0201835959"
         },
         {
             title: "The New One Minute Manager",
-            thumbnail: "https://images-na.ssl-images-amazon.com/images/I/513RrFGNeiL.jpg",
             link: "https://www.amazon.com/New-One-Minute-Manager/dp/0062367544/"
         },
         {
             title: "The Passionate Programmer: Creating a Remarkable Career in Software Development",
-            thumbnail: "https://images-na.ssl-images-amazon.com/images/I/51m3yzmDFCL._SX331_BO1,204,203,200_.jpg",
             link: "https://www.amazon.com/Passionate-Programmer-Remarkable-Development-Pragmatic-dp-1934356344/dp/1934356344"
         },
         {
             title: "The Phoenix Project: A Novel about IT, DevOps, and Helping Your Business Win",
-            thumbnail: "https://images-na.ssl-images-amazon.com/images/I/51Eie0TeStL._SX333_BO1,204,203,200_.jpg",
             link: "https://www.amazon.com/Phoenix-Project-DevOps-Helping-Business/dp/0988262592"
         },
         {
             title: "The Pragmatic Programmer",
-            thumbnail: "https://images-na.ssl-images-amazon.com/images/I/51cUVaBWZzL._SX380_BO1,204,203,200_.jpg",
-            link: "https://www.amazon.com/Pragmatic-Programmer-journey-mastery-Anniversary/dp/0135957052"
-        },
-        {
-            title: "The Richest Man in Babylon",
-            thumbnail: "https://images-na.ssl-images-amazon.com/images/I/51u3CVGs60L.jpg",
-            link: "https://www.amazon.com/Richest-Man-Babylon-George-Clason-ebook/dp/B07LGGDYJT"
-        },
-        {
-            title: "Think and Grow Rich",
-            thumbnail: "https://images-na.ssl-images-amazon.com/images/I/51ncDBWm8ZL.jpg",
-            link: "https://www.amazon.com/Think-Grow-Rich-Original-RevisedTM/dp/0990797600"
+            link: "https://www.google.com/books/edition/The_Pragmatic_Programmer/LhOlDwAAQBAJ"
         },
         {
             title: "To Pixar and Beyond",
-            thumbnail: "https://images-na.ssl-images-amazon.com/images/I/410a5m%2BN-zL._SX322_BO1,204,203,200_.jpg",
-            link: "https://www.amazon.com/Pixar-Beyond-Unlikely-Journey-Entertainment/dp/1786070812"
+            link: "https://www.google.com/books/edition/To_Pixar_and_Beyond/Nh69DwAAQBAJ"
+        }
+    ].map((book, index) => (
+        <a key={index} href={book.link}>{book.title}</a>
+    ));
+
+    const misc_books = [
+        {
+            title: "Atomic Habits: An Easy & Proven Way to Build Good Habits & Break Bad",
+            link: "https://www.google.com/books/edition/Atomic_Habits/Jrx6EAAAQBAJ"
+        },
+        {
+            title: "Attitude Is Everything",
+            link: "https://www.google.com/books/edition/Attitude_is_Everything/OppErgEACAAJ"
+        },
+        {
+            title: "Eat That Frog!",
+            link: "https://www.google.com/books/edition/Eat_That_Frog/MRbVRdmP630C"
+        },
+        {
+            title: "Factfulness",
+            link: "https://www.google.com/books/edition/Factfulness/N94sDwAAQBAJ"
+        },
+        {
+            title: "How To Win Friends and Influence People",
+            link: "https://www.google.com/books/edition/How_to_Win_Friends_and_Influence_People/vOb1EAAAQBAJ"
+        },
+        {
+            title: "Integrity: The Courage to Meet the Demands of Reality",
+            link: "https://www.google.de/books/edition/_/Hz4w0kxsnI0C"
+        },
+        {
+            title: "Man's Search for Meaning",
+            link: "https://www.amazon.com/Mans-Search-Meaning-Viktor-Frankl/dp/0807014273"
+        },
+        {
+            title: "Rich Dad Poor Dad",
+            link: "https://www.amazon.com/Rich-Dad-Poor-Teach-Middle/dp/1612680178"
+        },
+        {
+            title: "Sapiens: A Brief History of Humankind",
+            link: "https://www.amazon.com/Sapiens-Humankind-Yuval-Noah-Harari/dp/0062316117"
+        },
+        {
+            title: "The 7 Habits of Highly Effective People",
+            link: "https://www.amazon.com/Habits-Highly-Effective-People-Powerful-ebook/dp/B01069X4H0/"
+        },
+        {
+            title: "The Alchemist",
+            link: "https://www.amazon.com/Alchemist-Paulo-Coelho/dp/0062315005"
+        },
+        {
+            title: "The Art of Mental Training - A Guide to Performance Excellence",
+            link: "https://www.amazon.com/Art-Mental-Training-Performance-Excellence/dp/0615913547"
+        },
+        {
+            title: "The Compound Effect",
+            link: "https://www.amazon.com/Compound-Effect-Darren-Hardy/dp/159315724X"
+        },
+        {
+            title: "The Richest Man in Babylon",
+            link: "https://www.google.com/books/edition/The_Richest_Man_In_Babylon/5RVgEAAAQBAJ"
+        },
+        {
+            title: "Think and Grow Rich",
+            link: "https://www.google.com/books/edition/_/wjgNAAAACAAJ"
         },
         {
             title: "Who Moved My Cheese?",
-            thumbnail: "https://images-na.ssl-images-amazon.com/images/I/51QGl7HfNyL._SX314_BO1,204,203,200_.jpg",
-            link: "https://www.amazon.com/Who-Moved-My-Cheese-Mazing/dp/0091816971"
+            link: "https://www.google.com/books/edition/Who_Moved_My_Cheese/toxlBwAAQBAJ"
         }
-    ];
-
-    const bookItems = books.map((book, index) => (
-        <li><a key={index} href={book.link}>{book.title}</a></li>
+    ].map((book, index) => (
+        <a key={index} href={book.link}>{book.title}</a>
     ));
 
     return (
@@ -152,8 +128,20 @@ const Readings = () => {
                 <Seo title="Projects" />
                 <article className="post">
                     <section className="post-content">
-                        <h2>Non-academic books I've read so far</h2>
-                        {bookItems.length > 0 && <div className="books"><ul>{bookItems}</ul></div>}
+                        <p>
+                            From <a href="https://en.wikipedia.org/wiki/Chacha_Chaudhary">Chaha Chowdhury</a> comics to the detective novel series <a href="https://en.wikipedia.org/wiki/Tin_Goyenda">Tin Goyenda</a> or the spy-thriller series <a href="https://en.wikipedia.org/wiki/Masud_Rana_(fictional_character)">Masud Rana</a>, my love for books has always been a source of joy and comfort.
+                            However, after my introduction to Computers in late 2006, I wasn't the same reader I used to be.
+                            Still, I always try to go back to it whenever I get the chance.
+                            Over the past 10 years, my reading preferences have mostly changed towards the world of Software Engineering.
+                            The below list is a reflection of that preference.
+                            These are the books that I have read and I can recommend them to anyone interested in making a career in Software Development.
+                        </p>
+
+                        <h3>Software Engineering</h3>
+                        <div className="books">{se_books}</div>
+
+                        <h3>Miscellaneous</h3>
+                        <div className="books">{misc_books}</div>
                     </section>
                 </article>
             </main>
