@@ -52,7 +52,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
         });
 
         createPage({
-            path: `categories/${node.frontmatter.category}`,
+            path: `category/${node.frontmatter.category}`,
             component: path.resolve("./src/templates/category.template.js"),
             context: { category: node.frontmatter.category }
         });

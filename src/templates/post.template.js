@@ -14,7 +14,7 @@ function PostTemplate({ data: { mdx }, children }) {
                         <h1 className="post-title">{mdx.frontmatter.title}</h1>
                         <div className="post-meta">
                             <time className="post-date">Posted on {mdx.frontmatter.date}</time> — in{" "}
-                            <Link to={`/categories/${mdx.frontmatter.category}`}>{mdx.frontmatter.category}</Link>
+                            <Link to={`/category/${mdx.frontmatter.category}`}>{mdx.frontmatter.category}</Link>
                         </div>
                     </header>
 

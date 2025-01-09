@@ -14,7 +14,7 @@ export default function Posts({ data, pageContext }) {
                 </h2>
                 <div className="post-meta">
                     <time className="post-date">Posted on {edge.node.frontmatter.date}</time> — in{" "}
-                    <Link to={`/categories/${edge.node.frontmatter.category}`}>{edge.node.frontmatter.category}</Link>
+                    <Link to={`/category/${edge.node.frontmatter.category}`}>{edge.node.frontmatter.category}</Link>
                 </div>
             </header>
         </article>

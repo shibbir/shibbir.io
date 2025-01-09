@@ -107,3 +107,7 @@ a:hover {
 .books a {
     display: block;
 }
+
+.post-title a {
+    text-transform: none
+}
