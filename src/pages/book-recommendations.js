@@ -83,6 +83,10 @@ const Readings = () => {
             link: "https://www.google.de/books/edition/_/RcIS-b6SxcIC"
         },
         {
+            title: "Never Split the Difference: Negotiating as if Your Life Depended on It",
+            link: "https://www.google.de/books/edition/Never_Split_the_Difference/RmdqCgAAQBAJ"
+        },
+        {
             title: "Rich Dad Poor Dad",
             link: "https://www.google.com/books/edition/Rich_Dad_Poor_Dad/myUCBQAAQBAJ"
         },
